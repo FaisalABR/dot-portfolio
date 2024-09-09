@@ -1,16 +1,22 @@
 "use client";
 import { Button } from "@/components/atoms/Button";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { CardSkill } from "@/components/molecules/Card";
 import { SKILLS } from "@/lib/constants";
+import { LogoSlider } from "@/components/molecules/LogoSlider";
+import CardProject from "@/components/molecules/Card/CardProject";
+import { FAQ } from "@/components/organism/FAQ";
+import { Form } from "@/components/organism/Form";
+import { MdOutlineMail } from "react-icons/md";
+import { BsGithub } from "react-icons/bs";
+import { FiInstagram } from "react-icons/fi";
 
 const textArray = ["React Dev", "Software Eng", "Backend Dev"];
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const controls = useAnimation();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -104,7 +110,7 @@ export default function Home() {
               initial={{ opacity: 0, y: "-100%" }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.25, duration: 0.25 }}
-              className="text-3xl font-medium text-blue-primary mb-3"
+              className="text-3xl font-semibold text-blue-primary mb-3"
             >
               About Me
             </motion.h2>
@@ -131,19 +137,12 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full ">
-        {/* <Image
-          src="/assets/bg-blur2.svg"
-          width={100}
-          height={100}
-          alt="bg-blur"
-          className="w-full h-full object-cover left-0 right-0 absolute z-10"
-        /> */}
         <div className="w-[90%] lg:max-w-[1220px]  mx-auto mt-20 flex flex-col items-center justify-center px-2 py-10">
           <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary">
             My Skillset
           </h2>
           <div className="flex flex-col gap-10 w-full relative">
-            <div className="flex space-x-16 overflow-hidden w-full group">
+            <div className="flex space-x-16 overflow-hidden w-full ">
               <motion.div
                 initial={{ x: 0 }}
                 animate={{ x: "-100%" }}
@@ -167,27 +166,60 @@ export default function Home() {
               </motion.div>
             </div>
             <div className="flex space-x-16 overflow-hidden w-full">
-              <motion.div
-                initial={{ x: "-100%" }}
-                animate={{ x: 0 }}
-                transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-                className="flex space-x-16 group-hover:paused"
-              >
-                {SKILLS.map(({ name, image }) => (
-                  <CardSkill key={name} name={name} image={image} />
-                ))}
-              </motion.div>
-              <motion.div
-                initial={{ x: "-100%" }}
-                animate={{ x: 0 }}
-                transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-                className="flex space-x-16 group-hover:paused"
-                aria-hidden="true"
-              >
-                {SKILLS.map(({ name, image }) => (
-                  <CardSkill key={name} name={name} image={image} />
-                ))}
-              </motion.div>
+              <LogoSlider />
+              <LogoSlider />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-full relative">
+        <Image
+          src="/assets/bg-blur3.svg"
+          width={100}
+          height={100}
+          alt="bg-blur"
+          className="w-full h-full object-cover left-0 right-0 absolute z-10"
+        />
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20  mx-auto mt-20 flex flex-col items-center justify-center px-2 py-10">
+          <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary border-b-2 border-orange-400">
+            My Projects
+          </h2>
+          <div className="w-full grid grid-cols-3 gap-10">
+            <CardProject />
+            <CardProject />
+            <CardProject />
+          </div>
+        </div>
+      </div>
+      <div className="w-full relative">
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20  mx-auto mt-10 flex flex-col items-center justify-center px-2 py-10">
+          <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary border-b-2 border-orange-400">
+            FAQ
+          </h2>
+          <div className="w-full flex">
+            <FAQ />
+          </div>
+        </div>
+      </div>
+      <div className="w-full relative">
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20  mx-auto flex flex-col items-center justify-center px-2 py-10">
+          <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary border-b-2 border-orange-400">
+            Contact
+          </h2>
+          <div className="w-full flex items-center gap-10">
+            <div className="w-7/12">
+              <Form />
+            </div>
+            <div className="w-5/12 flex flex-col gap-5">
+              <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
+                <MdOutlineMail size={36} /> faisalabubakar.works@gmail.com
+              </div>
+              <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
+                <BsGithub size={36} /> FaisalABR
+              </div>
+              <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
+                <FiInstagram size={36} /> faisalabubakarriza
+              </div>
             </div>
           </div>
         </div>
