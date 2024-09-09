@@ -1,101 +1,197 @@
+"use client";
+import { Button } from "@/components/atoms/Button";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { CardSkill } from "@/components/molecules/Card";
+import { SKILLS } from "@/lib/constants";
+
+const textArray = ["React Dev", "Software Eng", "Backend Dev"];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const controls = useAnimation();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % textArray.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <>
+      <div className="w-full h-fit relative">
+        <Image
+          src="/assets/bg-blur.svg"
+          width={100}
+          height={100}
+          alt="bg-blur"
+          className="w-full h-full object-cover left-0 right-0 absolute z-10"
+        />
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20 h-[600px] mx-auto flex items-center justify-between px-2 py-3 ">
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="w-6/12 flex flex-col gap-4 items-start"
           >
+            <h1 className="text-5xl font-bold text-blue-primary">
+              Hi, I&apos;m Faisal
+            </h1>
+            <div style={{ overflow: "hidden", height: "30px" }}>
+              <motion.div
+                key={currentIndex}
+                initial={{ x: "100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "-100%", opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ position: "absolute" }}
+              >
+                <p className="text-3xl text-blue-primary font-medium">
+                  {textArray[currentIndex]}
+                </p>
+              </motion.div>
+            </div>
+            <p className="text-lg text-blue-900">
+              I will Help your business <br /> problems through technology
+            </p>
+
+            <Button className="mt-5 bg-blue-primary">Resume</Button>
+          </motion.div>
+          {/* Right */}
+          <div className="w-6/12 flex items-center justify-center">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/faisal.png"
+              width={400}
+              height={400}
+              alt="Faisal"
+              className="grayscale"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="w-full ">
+        <Image
+          src="/assets/bg-blur2.svg"
+          width={100}
+          height={100}
+          alt="bg-blur"
+          className="w-full h-full object-cover left-0 right-0 absolute z-10"
+        />
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20 h-[600px] mx-auto flex items-center justify-between px-2 py-3 ">
+          {/* Left */}
+          <div className="w-6/12 flex flex-col gap-4 items-center justify-center">
+            <motion.div
+              className="w-[320px] h-[380px] bg-blue-primary rounded-2xl flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              <Image
+                src="/images/faisal-presentation.jpeg"
+                width={280}
+                height={300}
+                alt="Faisal Presentation"
+                className="object-cover w-[280px] h-[340px] object-top rounded-xl grayscale"
+              />
+            </motion.div>
+          </div>
+          {/* Right */}
+          <div className="w-6/12">
+            <motion.h2
+              initial={{ opacity: 0, y: "-100%" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.25, duration: 0.25 }}
+              className="text-3xl font-medium text-blue-primary mb-3"
+            >
+              About Me
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: "100%" }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.25 }}
+              className="text-justify text-sm"
+            >
+              I am a third-year undergraduate student at UIN Syarif Hidayatullah
+              Jakarta, majoring in Information Systems. I have been specializing
+              in Web development for over a year, proficient in utilizing web
+              stacks such as{" "}
+              <strong className="text-blue-primary">React Js</strong>,{" "}
+              <strong className="text-blue-primary">Next Js</strong>,
+              <strong className="text-blue-primary">Express Js</strong>,
+              <strong className="text-blue-primary">MongoDb</strong>, and{" "}
+              <strong className="text-blue-primary">MySQL</strong>. Experienced
+              in team management and effectively communicating work results. I
+              have a background in completing freelance projects collaboratively
+              with a team.
+            </motion.p>
+          </div>
+        </div>
+      </div>
+      <div className="w-full ">
+        {/* <Image
+          src="/assets/bg-blur2.svg"
+          width={100}
+          height={100}
+          alt="bg-blur"
+          className="w-full h-full object-cover left-0 right-0 absolute z-10"
+        /> */}
+        <div className="w-[90%] lg:max-w-[1220px]  mx-auto mt-20 flex flex-col items-center justify-center px-2 py-10">
+          <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary">
+            My Skillset
+          </h2>
+          <div className="flex flex-col gap-10 w-full relative">
+            <div className="flex space-x-16 overflow-hidden w-full group">
+              <motion.div
+                initial={{ x: 0 }}
+                animate={{ x: "-100%" }}
+                transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+                className="flex space-x-16 group-hover:paused"
+              >
+                {SKILLS.map(({ name, image }) => (
+                  <CardSkill key={name} name={name} image={image} />
+                ))}
+              </motion.div>
+              <motion.div
+                initial={{ x: 0 }}
+                animate={{ x: "-100%" }}
+                transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+                className="flex space-x-16 group-hover:paused"
+                aria-hidden="true"
+              >
+                {SKILLS.map(({ name, image }) => (
+                  <CardSkill key={name} name={name} image={image} />
+                ))}
+              </motion.div>
+            </div>
+            <div className="flex space-x-16 overflow-hidden w-full">
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+                className="flex space-x-16 group-hover:paused"
+              >
+                {SKILLS.map(({ name, image }) => (
+                  <CardSkill key={name} name={name} image={image} />
+                ))}
+              </motion.div>
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+                className="flex space-x-16 group-hover:paused"
+                aria-hidden="true"
+              >
+                {SKILLS.map(({ name, image }) => (
+                  <CardSkill key={name} name={name} image={image} />
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
