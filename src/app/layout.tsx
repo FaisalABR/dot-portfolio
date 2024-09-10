@@ -16,13 +16,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  hero,
+  about,
+  skills,
+  projects,
+  faq,
+  contacts,
 }: Readonly<{
   children: React.ReactNode;
+  hero: React.ReactNode;
+  about: React.ReactNode;
+  skills: React.ReactNode;
+  projects: React.ReactNode;
+  faq: React.ReactNode;
+  contacts: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={`${poppins.className}  antialiased`}>
         <Navbar />
+        {hero}
+        {about}
+        {skills}
+        {projects}
+        {faq}
+        {contacts}
         {children}
         <Footer />
       </body>

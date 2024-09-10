@@ -49,3 +49,5 @@ export const SKILLS = [
     image: "/assets/css.png",
   },
 ];
+
+export const POSITION = ["React Dev", "Software Eng", "Backend Dev"];
