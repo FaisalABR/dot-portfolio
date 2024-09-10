@@ -1,8 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CardSkill } from "@/components/molecules/Card";
-import { SKILLS } from "@/lib/constants";
 import { LogoSlider } from "@/components/molecules/LogoSlider";
 
 const Page = () => {
@@ -14,31 +11,12 @@ const Page = () => {
         </h2>
         <div className="flex flex-col gap-10 w-full relative">
           <div className="flex space-x-16 overflow-hidden w-full ">
-            <motion.div
-              initial={{ x: 0 }}
-              animate={{ x: "-100%" }}
-              transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-              className="flex space-x-16 group-hover:paused"
-            >
-              {SKILLS.map(({ name, image }) => (
-                <CardSkill key={name} name={name} image={image} />
-              ))}
-            </motion.div>
-            <motion.div
-              initial={{ x: 0 }}
-              animate={{ x: "-100%" }}
-              transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-              className="flex space-x-16 group-hover:paused"
-              aria-hidden="true"
-            >
-              {SKILLS.map(({ name, image }) => (
-                <CardSkill key={name} name={name} image={image} />
-              ))}
-            </motion.div>
+            <LogoSlider from="-100%" to="0" />
+            <LogoSlider from="-100%" to="0" />
           </div>
           <div className="flex space-x-16 overflow-hidden w-full">
-            <LogoSlider />
-            <LogoSlider />
+            <LogoSlider to="-100%" from="0" />
+            <LogoSlider to="-100%" from="0" />
           </div>
         </div>
       </div>

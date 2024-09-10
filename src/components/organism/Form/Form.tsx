@@ -25,8 +25,6 @@ const Form = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
   return (
@@ -76,7 +74,9 @@ const Form = () => {
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <Button className="bg-blue-primary" type="submit">
+            Submit
+          </Button>
         </form>
       </FormShadCn>
     </div>

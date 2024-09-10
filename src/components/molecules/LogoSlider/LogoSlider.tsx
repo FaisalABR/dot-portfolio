@@ -2,11 +2,11 @@ import { SKILLS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { CardSkill } from "../Card";
 
-const LogoSlider = () => {
+const LogoSlider = ({ from, to }: { from: string; to: string }) => {
   return (
     <motion.div
-      initial={{ x: "-100%" }}
-      animate={{ x: 0 }}
+      initial={{ x: from }}
+      animate={{ x: to }}
       transition={{ duration: 30, ease: "linear", repeat: Infinity }}
       className="flex space-x-16 group-hover:paused"
     >

@@ -1,7 +1,6 @@
 import { Form } from "@/components/organism/Form";
-import { MdOutlineMail } from "react-icons/md";
-import { BsGithub } from "react-icons/bs";
-import { FiInstagram } from "react-icons/fi";
+import { ContactLink } from "@/components/molecules/ContactLink";
+import { CONTACTS } from "@/lib/constants";
 
 const Page = () => {
   return (
@@ -15,15 +14,11 @@ const Page = () => {
             <Form />
           </div>
           <div className="md:w-5/12 w-full flex flex-col gap-5">
-            <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
-              <MdOutlineMail size={36} /> faisalabubakar.works@gmail.com
-            </div>
-            <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
-              <BsGithub size={36} /> FaisalABR
-            </div>
-            <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
-              <FiInstagram size={36} /> faisalabubakarriza
-            </div>
+            {CONTACTS.map((item) => (
+              <ContactLink key={item.id} href={item.href}>
+                {item.icon} {item.text}
+              </ContactLink>
+            ))}
           </div>
         </div>
       </div>

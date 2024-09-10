@@ -1,10 +1,10 @@
 "use client";
 
-import { POSITION } from "@/lib/constants";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/atoms/Button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { POSITION } from "@/lib/constants";
 
 const Page = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,13 +57,51 @@ const Page = () => {
           <Button className="mt-5 bg-blue-primary">Resume</Button>
         </motion.div>
         {/* Right */}
-        <div className="w-6/12  md:flex hidden items-center justify-center">
+        <div className="w-6/12 relative md:flex hidden items-center justify-center">
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
+            className="absolute top-6 left-6"
+          >
+            <Image
+              src="/assets/satisfaction.png"
+              width={120}
+              height={120}
+              alt="Faisal"
+              className="shadow-lg"
+            />
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeOut" }}
+            className="absolute  bottom-0 left-20"
+          >
+            <Image
+              src="/assets/experience.png"
+              width={120}
+              height={120}
+              alt="Faisal"
+              className="shadow-lg"
+            />
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+            className="absolute right-5"
+          >
+            <Image
+              src="/assets/total-project.png"
+              width={120}
+              height={120}
+              alt="Faisal"
+              className="shadow-lg"
+            />
+          </motion.div>
           <Image
-            src="/images/faisal.png"
+            src="/images/Group_7.png"
             width={400}
             height={400}
             alt="Faisal"
-            className="grayscale"
           />
         </div>
       </div>

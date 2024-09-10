@@ -1,3 +1,7 @@
+import { BsGithub } from "react-icons/bs";
+import { FiInstagram } from "react-icons/fi";
+import { MdOutlineMail } from "react-icons/md";
+
 export const FAQ_DATA = [
   {
     value: "item-1",
@@ -51,3 +55,24 @@ export const SKILLS = [
 ];
 
 export const POSITION = ["React Dev", "Software Eng", "Backend Dev"];
+
+export const CONTACTS = [
+  {
+    id: "contact-1",
+    text: "faisalabubakar.works@gmail.com",
+    icon: <MdOutlineMail size={36} />,
+    href: "test",
+  },
+  {
+    id: "contact-2",
+    text: "FaisalABR",
+    icon: <BsGithub size={36} />,
+    href: "https://github.com/FaisalABR",
+  },
+  {
+    id: "contact-3",
+    text: "faisalabubakarriza",
+    icon: <FiInstagram size={36} />,
+    href: "https://www.instagram.com/faisalabubakarriza/",
+  },
+];
