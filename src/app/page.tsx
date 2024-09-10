@@ -35,13 +35,13 @@ export default function Home() {
           alt="bg-blur"
           className="w-full h-full object-cover left-0 right-0 absolute z-10"
         />
-        <div className="w-[90%] lg:max-w-[1220px] relative z-20 h-[600px] mx-auto flex items-center justify-between px-2 py-3 ">
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20 h-screen mx-auto flex items-center justify-between px-2 py-3 ">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="w-6/12 flex flex-col gap-4 items-start"
+            className="md:w-6/12 w-full flex flex-col gap-4 items-start"
           >
             <h1 className="text-5xl font-bold text-blue-primary">
               Hi, I&apos;m Faisal
@@ -67,7 +67,7 @@ export default function Home() {
             <Button className="mt-5 bg-blue-primary">Resume</Button>
           </motion.div>
           {/* Right */}
-          <div className="w-6/12 flex items-center justify-center">
+          <div className="w-6/12  md:flex hidden items-center justify-center">
             <Image
               src="/images/faisal.png"
               width={400}
@@ -86,9 +86,9 @@ export default function Home() {
           alt="bg-blur"
           className="w-full h-full object-cover left-0 right-0 absolute z-10"
         />
-        <div className="w-[90%] lg:max-w-[1220px] relative z-20 h-[600px] mx-auto flex items-center justify-between px-2 py-3 ">
+        <div className="w-[90%] lg:max-w-[1220px] relative z-20 h-[600px] mx-auto flex md:flex-row flex-col md:gap-0 gap-10 items-center justify-between px-2 py-3 ">
           {/* Left */}
-          <div className="w-6/12 flex flex-col gap-4 items-center justify-center">
+          <div className="md:w-6/12 w-full flex flex-col gap-4 items-center justify-center">
             <motion.div
               className="w-[320px] h-[380px] bg-blue-primary rounded-2xl flex items-center justify-center"
               initial={{ opacity: 0, scale: 0.1 }}
@@ -105,7 +105,7 @@ export default function Home() {
             </motion.div>
           </div>
           {/* Right */}
-          <div className="w-6/12">
+          <div className="md:w-6/12 w-full">
             <motion.h2
               initial={{ opacity: 0, y: "-100%" }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +184,7 @@ export default function Home() {
           <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary border-b-2 border-orange-400">
             My Projects
           </h2>
-          <div className="w-full grid grid-cols-3 gap-10">
+          <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-10">
             <CardProject />
             <CardProject />
             <CardProject />
@@ -206,11 +206,11 @@ export default function Home() {
           <h2 className="text-right font-semibold my-10 text-3xl text-blue-primary border-b-2 border-orange-400">
             Contact
           </h2>
-          <div className="w-full flex items-center gap-10">
-            <div className="w-7/12">
+          <div className="w-full flex md:flex-row flex-col items-center gap-10">
+            <div className="md:w-7/12 w-full">
               <Form />
             </div>
-            <div className="w-5/12 flex flex-col gap-5">
+            <div className="md:w-5/12 w-full flex flex-col gap-5">
               <div className="flex items-center gap-3 text-sm font-medium text-blue-primary">
                 <MdOutlineMail size={36} /> faisalabubakar.works@gmail.com
               </div>
