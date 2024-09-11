@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const CardSkill = ({ name, image }) => {
+const CardSkill = ({ name, image }: { name: string; image: string }) => {
   return (
     <div className="w-44 group cursor-pointer bg-white shadow-md rounded-2xl flex px-3 py-2 items-center justify-center gap-5">
       <Image
