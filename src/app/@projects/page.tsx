@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CardProject from "@/components/molecules/Card/CardProject";
+import { PROJECTS } from "@/lib/constants";
 
 const Page = () => {
   return (
@@ -16,9 +17,16 @@ const Page = () => {
           My Projects
         </h2>
         <div className="w-full grid md:grid-cols-3 grid-cols-1 gap-10">
-          <CardProject />
-          <CardProject />
-          <CardProject />
+          {PROJECTS.map((item) => (
+            <CardProject
+              key={item.id}
+              title={item.title}
+              date={item.date}
+              description={item.description}
+              image={item.image}
+              link={item.link}
+            />
+          ))}
         </div>
       </div>
     </div>

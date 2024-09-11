@@ -24,9 +24,9 @@ const Form = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  const onSubmit = () => {
+    // TODO: Send email to faisal
+  };
   return (
     <div className="w-full ">
       <FormShadCn {...form}>

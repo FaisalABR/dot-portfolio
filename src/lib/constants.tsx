@@ -76,3 +76,31 @@ export const CONTACTS = [
     href: "https://www.instagram.com/faisalabubakarriza/",
   },
 ];
+
+export const PROJECTS = [
+  {
+    id: "project-1",
+    image: "/assets/trus.png",
+    title: "Trus",
+    description:
+      "Landing page for Trus Corp. Trusted IT Service Partner for Your Stock Trading",
+    date: "18 Feb 2024",
+    link: "https://trus.co.id/",
+  },
+  {
+    id: "project-2",
+    image: "/assets/storegg.png",
+    title: "StoreGG",
+    description: "Website for top up micro transaction in many platform",
+    date: "28 Jan 2024",
+    link: "https://precious-gecko-bf07b1.netlify.app/",
+  },
+  {
+    id: "project-3",
+    image: "/assets/kanban-react.png",
+    title: "Kanban React",
+    description: "Website for top up micro transaction in many platform",
+    date: "5 Mar 2024",
+    link: "https://kanban-react123.netlify.app/projects/project-1",
+  },
+];
