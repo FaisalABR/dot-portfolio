@@ -55,13 +55,13 @@ const Navbar = () => {
           {open ? (
             <IoCloseOutline
               size={25}
-              className="text-blue-primary z-50"
+              className="text-blue-primary z-50 block md:hidden "
               onClick={() => setOpen(false)}
             />
           ) : (
             <RxHamburgerMenu
               size={25}
-              className="text-blue-primary z-50"
+              className="text-blue-primary z-50 block md:hidden "
               onClick={() => setOpen(true)}
             />
           )}
